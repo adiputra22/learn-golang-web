@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/adiputra22/learn-golang-web/pkg/config"
+	"github.com/adiputra22/learn-golang-web/pkg/models"
 	"github.com/adiputra22/learn-golang-web/pkg/render"
 )
 
@@ -24,9 +25,14 @@ func NewHandlers(r *Repository) {
 }
 
 func (rp *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "home.html")
+	render.RenderTemplate(w, "home.html", &models.TemplateData{})
 }
 
 func (rp *Repository) About(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "about.html")
+	stringMap := make(map[string]string)
+	stringMap["person"] = "Adiputra"
+
+	render.RenderTemplate(w, "about.html", &models.TemplateData{
+		StringMap: stringMap,
+	})
 }
