@@ -42,3 +42,23 @@ func (rp *Repository) About(w http.ResponseWriter, r *http.Request) {
 		StringMap: stringMap,
 	})
 }
+
+func (rp *Repository) Generals(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "generals.html", &models.TemplateData{})
+}
+
+func (rp *Repository) Majors(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "majors.html", &models.TemplateData{})
+}
+
+func (rp *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "make-reservation.html", &models.TemplateData{})
+}
+
+func (rp *Repository) Availability(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "search-availability.html", &models.TemplateData{})
+}
+
+func (rp *Repository) Contact(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "contact.html", &models.TemplateData{})
+}
