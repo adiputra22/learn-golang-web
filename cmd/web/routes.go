@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/adiputra22/learn-golang-web/pkg/config"
-	"github.com/adiputra22/learn-golang-web/pkg/handlers"
+	"github.com/adiputra22/learn-golang-web/internal/config"
+	"github.com/adiputra22/learn-golang-web/internal/handlers"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
@@ -23,7 +23,9 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Get("/majors-suite", handlers.Repo.Majors)
 	mux.Get("/search-availability", handlers.Repo.Availability)
 	mux.Get("/make-reservation", handlers.Repo.Reservation)
+	mux.Post("/make-reservation", handlers.Repo.PostReservation)
 	mux.Post("/search-availability", handlers.Repo.PostAvailability)
+	mux.Get("/search-availability-json", handlers.Repo.AvailabilityJSON)
 
 	fileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))

@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/adiputra22/learn-golang-web/pkg/config"
-	"github.com/adiputra22/learn-golang-web/pkg/models"
+	"github.com/adiputra22/learn-golang-web/internal/config"
+	"github.com/adiputra22/learn-golang-web/internal/models"
 	"github.com/justinas/nosurf"
 )
 

@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/adiputra22/learn-golang-web/pkg/config"
-	"github.com/adiputra22/learn-golang-web/pkg/handlers"
-	"github.com/adiputra22/learn-golang-web/pkg/render"
+	"github.com/adiputra22/learn-golang-web/internal/config"
+	"github.com/adiputra22/learn-golang-web/internal/handlers"
+	"github.com/adiputra22/learn-golang-web/internal/render"
 	"github.com/alexedwards/scs/v2"
 )
 
