@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/asaskevich/govalidator"
 )
 
 type Form struct {
@@ -49,5 +51,14 @@ func (f *Form) MinLength(field string, length int, r *http.Request) bool {
 		f.Errors.Add(field, fmt.Sprintf("This field min length is %d", length))
 		return false
 	}
+	return true
+}
+
+func (f *Form) IsEmail(field string) bool {
+	if !govalidator.IsEmail(f.Get(field)) {
+		f.Errors.Add(field, "Email is not valid")
+		return false
+	}
+
 	return true
 }
